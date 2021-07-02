@@ -6,8 +6,14 @@ async function play() {
     const Jacob = new Entity({ name: "林振可", health: 100, attack: 20, defense: 6, attribute: 3 });
     const Pascal = new Entity({ name: "林哲玄", health: 100, attack: 20, defense: 6, attribute: 4 });
     const Peter = new Entity({ name: "劉益華", health: 100, attack: 20, defense: 6, attribute: 5 });
+    const Archie = new Entity({ name: "黃奕齊", health: 140, attack: 10, defense: 6, attribute: 2 });
+    const Eric = new Entity({ name: "林書瑋", health: 100, attack: 32, defense: 0, attribute: 4 });
+    const Allen = new Entity({ name: "周杯杯", health: 130, attack: 20, defense: 3, attribute: 3 });
+    const Stranger = new Entity({ name: "路人", health: 50, attack: 50, defense: 8, attribute: 4 });
+    const 林緯翰 = new Entity({ name: "林緯翰", health: 100, attack: 20, defense: 6, attribute: 5 });
+    const MathT = new Entity({ name: "周周", health: 100, attack: 26, defense: 4, attribute: 1 });
 
-    const players = [Jeromy, Jack, Jacob, Pascal, Peter];
+    const players = [Jeromy, Jack, Jacob, Pascal, Peter, Eric, Allen, Stranger, Archie, MathT, 林緯翰];
 
     players.forEach((player) => {
         player.on("attacked", (p, d) => {
@@ -20,7 +26,7 @@ async function play() {
 
     let round = 0;
     while (more_than_1_survived() && round++ < 100) {
-        await sleep(500);
+        await sleep(400);
         let survivers = players.filter((player) => player.data.survived);
         let attacker = survivers[Math.floor(Math.random() * survivers.length)];
         let poor_man = survivers[Math.floor(Math.random() * survivers.length)];
